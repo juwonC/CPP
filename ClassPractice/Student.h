@@ -18,8 +18,5 @@ class Student
 
 public:
 	void SetStudent(const char name[NAME_SIZE], int number, int score);
-	const char GetName(const char name[NAME_SIZE]);
-	int GetNumber(int number);
-	int GetScore(int score);
 };
 
