@@ -3,12 +3,12 @@
 #include "Point2D.h"
 
 
-int Point2D::GetX(int x)
+int Point2D::GetX()
 {
 	return mX;
 }
 
-int Point2D::GetY(int y)
+int Point2D::GetY()
 {
 	return mY;
 }
