@@ -9,14 +9,22 @@ class Student
 	int mNumber;
 	int mScore;
 
-	//Student(char name[], int number, int score)
-	//{
-	//	strcpy(mName, name);
-	//	mNumber = number;
-	//	mScore = score;
-	//}
-
 public:
+	Student()
+	{
+	}
+
+	Student(const char name[], int number, int score)
+	{
+		strcpy_s(mName, NAME_SIZE, name);
+		mNumber = number;
+		mScore = score;
+	}
+
+
 	void SetStudent(const char name[NAME_SIZE], int number, int score);
+	char* GetName();
+	int GetScore();
+	int GetNumber();
 };
 

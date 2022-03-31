@@ -8,3 +8,18 @@ void Student::SetStudent(const char name[NAME_SIZE], int number, int score)
 	mScore = score;
 }
 
+char* Student::GetName()
+{
+	return (char*)mName;
+}
+
+int Student::GetScore()
+{
+	return mScore;
+}
+
+int Student::GetNumber()
+{
+	return mNumber;
+}
+

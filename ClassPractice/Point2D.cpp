@@ -19,9 +19,11 @@ void Point2D::SetCoordinate(int x, int y)
 	mY = y;
 }
 
-int Point2D::GetDistancefromStartingPoint(int x, int y)
+int Point2D::GetDistancefromStartingPoint()
 {
 	int distance{};
+	int x = mX;
+	int y = mY;
 
 	return distance = sqrt(pow(x, 2) + pow(y, 2));
 }

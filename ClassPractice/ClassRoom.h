@@ -1,23 +1,18 @@
 #pragma once
 #include "Student.h"
 
-const int STUDENT_NUMBER = 10;
+const int STUDENT_NUMBER{ 10 };
 
-class ClassRoom : Student
+class ClassRoom
 {
 	int mGrade;
 	int mRoomNumber;
-	Student s[STUDENT_NUMBER];
-
-	//ClassRoom(int grade, int roomNumber, Student s[STUDENT_NUMBER])
-	//{
-	//	mGrade = grade;
-	//	mRoomNumber = roomNumber;
-	//	s[STUDENT_NUMBER] = ;
-	//}
+	Student mStudents[STUDENT_NUMBER];
 
 public:
-	void PrintStudentList(Student* s[], int size);
-	// void GetTotalScore(Student s[], int size);
+
+	void SetClassRoomInfo(int grade, int roomNumber, Student* mStudents);
+	void PrintStudentList();
+	void GetTotalScore();
 };
 
