@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{a0aaef70-86a9-4046-9eae-210c784f3c0e}</ProjectGuid>
-    <RootNamespace>ClassPractice</RootNamespace>
+    <ProjectGuid>{dd5c1845-a9b9-49b9-9411-40a4250767a0}</ProjectGuid>
+    <RootNamespace>MyString</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,18 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ClassRoom.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Point2D.cpp" />
-    <ClCompile Include="Student.cpp" />
+    <ClCompile Include="MyString.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ClassRoom.h" />
-    <ClInclude Include="Point2D.h" />
-    <ClInclude Include="Student.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
+    <ClInclude Include="MyString.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
