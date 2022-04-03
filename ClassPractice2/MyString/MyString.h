@@ -1,5 +1,3 @@
-#include <iostream>
-#include <string>
 #pragma once
 
 class MyString
@@ -14,4 +12,3 @@ public:
 public:
 	void Print();
 };
-

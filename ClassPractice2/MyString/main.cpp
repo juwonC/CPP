@@ -3,7 +3,7 @@
 
 int main()
 {
-	MyString s1{"HelloWorld"};
+	MyString s1 { "Hello World" };
 
 	s1.Print();
 
