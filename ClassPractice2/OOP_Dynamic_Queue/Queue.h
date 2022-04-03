@@ -15,6 +15,11 @@ private:
 	Element* mpTail;
 
 public:
-
+	Queue();
+	void PrintInfo();
+	void PrintQueue(Queue& queue);
+	Element* Enqueue(Queue& queue, int value);
+	bool Dequeue(Queue& queue);
+	void ProcessUserInput(Queue& queue);
 };
 

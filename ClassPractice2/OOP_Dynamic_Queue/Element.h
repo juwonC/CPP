@@ -7,6 +7,9 @@ private:
 	Element* mpNext;
 
 public:
-
+	int GetValue();
+	Element* GetNextPointer();
+	void SetValue(int value);
+	void SetNextPointer(Element* pNext);
 };
 
