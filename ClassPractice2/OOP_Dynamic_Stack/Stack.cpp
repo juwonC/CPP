@@ -1,6 +1,11 @@
 #include <iostream>
 #include "Stack.h"
 
+Stack::Stack() : mpTop{ nullptr }
+{
+
+}
+
 void Stack::PrintInfo()
 {
     std::cout << "<STACK>" << std::endl <<

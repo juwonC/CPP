@@ -11,9 +11,10 @@ enum Command
 class Stack
 {
 private:
-	Element* mpTop = nullptr;
+	Element* mpTop;
 
 public:
+	Stack();
 	void PrintInfo();
 	void PrintStack(Stack& stack);
 	Element* Push(Stack& stack, int value);
