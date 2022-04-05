@@ -92,6 +92,7 @@ void Queue::ProcessUserInput(Queue& queue)
         switch (command)
         {
             case ENQUEUE:
+
             {
                 int value;
                 std::cout << "   Enqueue value > ";

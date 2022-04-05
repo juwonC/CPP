@@ -1,17 +1,18 @@
 #include "Element.h"
 #pragma once
 
-enum Command
-{
-	PUSH = 1,
-	POP = 2,
-	EXIT = 3
-};
-
 class Stack
 {
 private:
 	Element* mpTop;
+
+private:
+	enum Command
+	{
+		PUSH = 1,
+		POP = 2,
+		EXIT = 3
+	};
 
 public:
 	Stack();
