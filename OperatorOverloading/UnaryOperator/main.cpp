@@ -35,8 +35,17 @@ public:
 	//	return temp;
 	//}
 
+	//Point2D& operator-()
+	//{
+	//	mX = -mX;
+	//	mY = -mY;
+
+	//	return *this;
+	//}
+
 	friend const Point2D& operator++(Point2D& point);
 	friend const Point2D& operator++(Point2D& point, int value);
+	friend Point2D& operator-(Point2D& point);
 };
 
 const Point2D& operator++(Point2D& point)
@@ -56,6 +65,14 @@ const Point2D& operator++(Point2D& point, int value)
 	return temp;
 }
 
+Point2D& operator-(Point2D& point)
+{
+	point.mX = -point.mX;
+	point.mY = -point.mY;
+
+	return point;
+}
+
 int main()
 {
 	Point2D pt1{1, 1};
@@ -65,5 +82,8 @@ int main()
 	pt2.Print();
 
 	Point2D pt3 = pt1++;
+	pt3.Print();
+
+	-pt3;
 	pt3.Print();
 }
