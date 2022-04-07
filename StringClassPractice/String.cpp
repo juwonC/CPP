@@ -13,7 +13,7 @@ String::String(int length) : mLength{ length }
 	mLength = length;
 	mString = new char[GetLength()];
 
-	std::cout << length << "글자 저장 가능" << std::endl;
+	std::cout << "Can be entered " << length << " characters!" << std::endl;
 }
 
 String::String(const char* string)
