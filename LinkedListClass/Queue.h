@@ -8,13 +8,13 @@ private:
 	LinkedList* mpHead;
 	LinkedList* mpTail;
 
-private:
-	enum Command
-	{
-		ENQUEUE = 1,
-		DEQUEUE = 2,
-		EXIT = 3
-	};
+//private:
+//	enum Command
+//	{
+//		ENQUEUE = 1,
+//		DEQUEUE = 2,
+//		EXIT = 3
+//	};
 
 public:
 	Queue();

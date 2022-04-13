@@ -7,13 +7,13 @@ private:
 	int mCount;
 	LinkedList* mpTop;
 
-private:
-	enum Command
-	{
-		PUSH = 1,
-		POP = 2,
-		EXIT = 3
-	};
+//private:
+//	enum Command
+//	{
+//		PUSH = 1,
+//		POP = 2,
+//		EXIT = 3
+//	};
 
 public:
 	Stack();
