@@ -1,6 +1,6 @@
 #include "Queue.h"
 
-Queue::Queue() : mCount{ 0 }, mpHead{ nullptr }, mpTail{ nullptr }
+Queue::Queue() : mpHead{ nullptr }, mpTail{ nullptr }
 {
 }
 
@@ -8,7 +8,7 @@ Queue::~Queue()
 {
 }
 
-void Queue::ENQUEUE(int value)
+void Queue::Enqueue(int value)
 {
 	LinkedList* element = new LinkedList;
 
@@ -27,7 +27,7 @@ void Queue::ENQUEUE(int value)
 	mCount++;
 }
 
-bool Queue::DEQUEUE()
+bool Queue::Dequeue()
 {
 	LinkedList* pCurrent = mpHead;
 
@@ -42,7 +42,7 @@ bool Queue::DEQUEUE()
 	{
 		mpHead = mpTail = nullptr;
 	}
-	else if (mpHead = pCurrent)
+	else if (mpHead == pCurrent)
 	{
 		mpHead = pCurrent->GetNextPointer();
 	}
@@ -79,6 +79,49 @@ void Queue::PrintList() const
 
 		element = element->GetNextPointer();
 	}
-
+	std::cout << std::endl;
 	std::cout << "---------------------" << std::endl;
+}
+
+void Queue::ProcessUserInput()
+{
+	int command{};
+	bool isExit{ false };
+
+	while (true)
+	{
+		PrintList();
+
+		std::cout << std::endl;
+		std::cout << "> ";
+		std::cin >> command;
+
+		switch (command)
+		{
+			case ENQUEUE:
+			{
+				int value;
+				std::cout << "\tEnqueue value > ";
+				std::cin >> value;
+				Enqueue(value);
+			}
+				break;
+
+			case DEQUEUE:
+				Dequeue();
+				break;
+
+			case Command::EXIT:
+				isExit = true;
+				break;
+
+			default:
+				std::cout << "Incorrect Command" << std::endl;
+				break;
+		}
+		if (isExit)
+		{
+			break;
+		}
+	}
 }

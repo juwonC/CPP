@@ -1,6 +1,6 @@
 #include "LinkedList.h"
 
-LinkedList::LinkedList() : mValue { 0 }, mpNext{ nullptr }
+LinkedList::LinkedList() : mValue{ 0 }, mCount{ 0 }, mpNext{ nullptr }
 {
 }
 
@@ -8,12 +8,12 @@ LinkedList::~LinkedList()
 {
 }
 
-int LinkedList::GetValue()
+int LinkedList::GetValue() const
 {
 	return mValue;
 }
 
-LinkedList* LinkedList::GetNextPointer()
+LinkedList* LinkedList::GetNextPointer() const
 {
 	return mpNext;
 }

@@ -1,6 +1,6 @@
 #include "Stack.h"
 
-Stack::Stack() : mCount{ 0 }, mpTop{ nullptr }
+Stack::Stack() : mpTop{ nullptr }
 {
 }
 
@@ -8,7 +8,7 @@ Stack::~Stack()
 {
 }
 
-void Stack::PUSH(int value)
+void Stack::Push(int value)
 {
 	LinkedList* element = new LinkedList;
 	element->SetValue(value);
@@ -18,7 +18,7 @@ void Stack::PUSH(int value)
 	mCount++;
 }
 
-bool Stack::POP()
+bool Stack::Pop()
 {
 	LinkedList* pCurrent = mpTop;
 
@@ -61,4 +61,47 @@ void Stack::PrintList() const
 	}
 
 	std::cout << "---------------------" << std::endl;
+}
+
+void Stack::ProcessUserInput()
+{
+	int command{};
+	bool isExit{ false };
+
+	while (true)
+	{
+		PrintList();
+
+		std::cout << std::endl;
+		std::cout << "> ";
+		std::cin >> command;
+
+		switch (command)
+		{
+			case PUSH:
+			{
+				int value;
+				std::cout << "\tEnqueue value > ";
+				std::cin >> value;
+				Push(value);
+			}
+			break;
+
+			case POP:
+				Pop();
+				break;
+
+			case Command::EXIT:
+				isExit = true;
+				break;
+
+			default:
+				std::cout << "Incorrect Command" << std::endl;
+				break;
+		}
+		if (isExit)
+		{
+			break;
+		}
+	}
 }
