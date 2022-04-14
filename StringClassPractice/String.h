@@ -15,6 +15,7 @@ public:
 	String(const String& string);
 	~String();
 
+public:
 	const char* GetString() const;
 	int GetLength() const;
 

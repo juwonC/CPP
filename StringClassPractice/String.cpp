@@ -62,6 +62,13 @@ String String::operator+(const String& string)
 
 const String& String::operator=(const String& string)
 {
+	// a = a; 같은 값 대입
+	if (this == &string)
+	{
+		return *this;
+	}
+	delete[] mString;
+
 	mLength = string.mLength;
 	mString = new char[GetLength()];
 

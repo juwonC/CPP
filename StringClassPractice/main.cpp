@@ -33,4 +33,7 @@ int main()
 
 	s4 += s5;
 	std::cout << s4 << std::endl;
+
+	String temp;
+	temp = temp;
 }
