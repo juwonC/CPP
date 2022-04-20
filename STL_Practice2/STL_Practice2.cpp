@@ -4,6 +4,11 @@
 #include <array>
 #include <forward_list>
 #include <list>
+#include <deque>
+#include <stack>
+#include <queue>
+#include <set>
+#include <map>
 
 int IntCompare(const void* left, const void* right)
 {
@@ -145,27 +150,137 @@ int main()
 
     //------------------------------------------------------------------
 
-    std::list<int> list{ 1, 2, 3 };
+    //std::list<int> list{ 1, 2, 3 };
 
-    list.reverse();
+    //list.reverse();
 
-    for (int e : list)
+    //for (int e : list)
+    //{
+    //    std::cout << e << " ";
+    //}
+    //std::cout << std::endl;
+
+    //std::list<int> list2{ 4, 5, 6 };
+
+    //list.sort();
+    //list2.merge(list);
+
+    //for (int e : list2)
+    //{
+    //    std::cout << e << " ";
+    //}
+    //std::cout << std::endl;
+
+    //list2.erase(list2.begin());
+
+    //------------------------------------------------------------------
+
+    //std::deque<int> container{ 3, 4, 5 };
+
+    //container.push_front(1);
+    //container.push_back(2);
+    //container.pop_front();
+
+
+    //------------------------------------------------------------------
+
+//Container Adapter
+
+    //std::stack<int> container;
+
+    //container.push(1);
+    //container.push(2);
+    //container.push(3);
+    //container.push(2);
+    //container.push(1);
+
+    //container.pop();
+
+    //std::stack<int> tempStack(container);
+    //while (!tempStack.empty())
+    //{
+    //    std::cout << tempStack.top() << std::endl;
+    //    tempStack.pop();
+    //}
+
+    //------------------------------------------------------------------
+
+ //   std::queue<int> container;
+
+ //   container.push(1);
+ //   container.push(2);
+ //   container.push(3);
+
+ //   container.pop();
+
+	//std::queue<int> tempQueue(container);
+	//while (!tempQueue.empty())
+	//{
+	//	std::cout << tempQueue.front() << " ";
+	//	tempQueue.pop();
+	//}
+
+    //------------------------------------------------------------------
+    
+    //std::priority_queue<int> container;
+
+    //container.push(1);
+    //container.push(3);
+    //container.push(2);
+    //container.push(1);
+    //container.push(2);
+    //container.push(4);
+
+    //std::cout << container.top() << std::endl;
+
+    //container.pop();
+
+    //std::cout << container.top() << std::endl;
+
+    //------------------------------------------------------------------
+//Associative Container
+    
+ //   std::set<int> container;
+
+ //   container.insert(1);
+ //   container.insert(5);
+ //   container.insert(7);
+ //   container.insert(3);
+ //   container.insert(2);
+
+ //   container.erase(2);
+
+	//for (const auto& e : container)
+	//{
+	//	std::cout << e << " ";
+	//}
+	//std::cout << std::endl;
+
+    //------------------------------------------------------------------
+    
+    using MyPair = std::pair<int, std::string>;
+
+    std::map<int, std::string> container;
+    std::pair<int, std::string> element;
+
+    element.first = 1;
+    element.second = "array";
+
+    container.insert(element);
+
+    container.insert(std::pair<int, std::string>(3, "vector"));
+
+    container.insert(MyPair(4, "stack"));
+
+    container.insert({ 2, "queue" });
+
+
+    for (const auto& e : container)
     {
-        std::cout << e << " ";
+        std::cout << e.first << " : " << e.second << std::endl;
     }
-    std::cout << std::endl;
 
-    std::list<int> list2{ 4, 5, 6 };
-
-    list.sort();
-    list2.merge(list);
-
-    for (int e : list2)
-    {
-        std::cout << e << " ";
-    }
-    std::cout << std::endl;
-
-    list2.erase(list2.begin());
+    std::cout << container.at(3) << std::endl;
+    std::cout << container[2] << std::endl;
 
 }
