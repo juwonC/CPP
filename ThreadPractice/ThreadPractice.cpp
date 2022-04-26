@@ -1,11 +1,24 @@
 ﻿#include <iostream>
 #include <thread>
+#include <mutex>
+
+std::mutex gMutex;
 
 void PrintInt()
 {
-    for (int i = 0; i < 500; ++i)
+    int i{};
+    while (i < 500)
     {
-        std::cout << "Job1 : " << i << std::endl;
+        if (gMutex.try_lock())
+        {
+            std::cout << "Job1 : " << i << std::endl;
+            ++i;
+            gMutex.unlock();
+        }
+        else
+        {
+
+        }
     }
 }
 
@@ -13,9 +26,19 @@ void PrintAscii()
 {
     for (int repeat = 0; repeat < 5; ++repeat)
     {
-        for (int i = 33; i < 126; ++i)
+        int i{ 33 };
+        while (i < 126)
         {
-            std::cout << "Job2 : " << (char)(i) << std::endl;
+            if (gMutex.try_lock())
+            {
+                std::cout << "Job2 : " << (char)(i) << std::endl;
+                ++i;
+                gMutex.unlock();
+            }
+            else
+            {
+
+            }
         }
     }
 }
