@@ -7,15 +7,29 @@ bool LoadFile(const char* filename)
 
 	if (!ifs)
 	{
-		std::cout << "Cannot Find the File" << std::endl;
+		std::cout << "Cannot find the file" << std::endl;
 		return false;
 	}
 
 	ifs.open(filename);
 
 	char ch;
-	while (ifs >> ch)
+	while (ifs.get(ch))
 	{
+		if (!ifs.bad())
+		{
+			std::cerr << "The file is corrupt" << std::endl;
+			ifs.close();
+			return false;
+		}
+
+		if (!ifs.fail())
+		{
+			std::cerr << "Invalid file format" << std::endl;
+			ifs.close();
+			return false;
+		}
+
 		std::cout << ch;
 	}
 
@@ -25,5 +39,5 @@ bool LoadFile(const char* filename)
 
 int main()
 {
-	bool LoadFile("Data/SimpleText.txt");
+	LoadFile("Data/SimpleText.txt");
 }
