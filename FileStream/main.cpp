@@ -65,7 +65,7 @@ std::ostream& operator << (std::ostream& ofs, Monster& monster)
 	return ofs;
 }
 
-bool LoadFile(const std::string& filename, std::vector<Monster>& vector)
+bool LoadFile(const std::string& filename, std::vector<Monster>& v)
 {
 	std::ifstream ifs;
 	ifs.exceptions(std::ifstream::badbit);
@@ -83,7 +83,7 @@ bool LoadFile(const std::string& filename, std::vector<Monster>& vector)
 			
 			ifs >> m;
 
-			vector.push_back(m);
+			v.push_back(m);
 		}
 		ifs.close();
 	}
@@ -97,6 +97,30 @@ bool LoadFile(const std::string& filename, std::vector<Monster>& vector)
 	return true;
 }
 
+bool SaveToFile(const std::string& filename, std::vector<Monster>& v)
+{
+	std::ofstream ofs;
+	ofs.exceptions(std::ostream::badbit);
+
+	try
+	{
+		ofs.open(filename);
+
+		ofs << "--- Monster Data ---" << std::endl;
+		for (auto& e : v)
+		{
+			ofs << e;
+		}
+
+		ofs.close();
+	}
+	catch (std::ostream::failure e)
+	{
+		std::cout << "An error occured while saving the file" << e.what() << std::endl;
+	}
+	return true;
+}
+
 int main()
 {
 	std::vector<Monster> monsterList;
@@ -107,4 +131,6 @@ int main()
 	{
 		std::cout << e << std::endl;
 	}
+
+	SaveToFile("Data/SaveData.txt", monsterList);
 }
