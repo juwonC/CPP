@@ -24,7 +24,46 @@ public:
 	void SetLevel(int level) { mLevel = level; }
 	void SetHP(int hp) { mHP = hp; }
 	void SetMP(int mp) { mMP = mp; }
+
+	friend std::istream& operator >> (std::istream& ifs, Monster& m);
+	friend std::ostream& operator << (std::ostream& ofs, Monster& m);
 };
+
+std::istream& operator >> (std::istream& ifs, Monster& monster)
+{
+	std::string buffer;
+
+	try
+	{
+		std::getline(ifs, buffer, ',');
+		monster.mName = buffer;
+
+		std::getline(ifs, buffer, ',');
+		monster.SetLevel(std::stoi(buffer));
+
+		std::getline(ifs, buffer, ',');
+		monster.SetHP(std::stoi(buffer));
+
+		std::getline(ifs, buffer);
+		monster.SetMP(std::stoi(buffer));
+	}
+	catch (std::exception e)
+	{
+		std::cout << "Error" << e.what() << std::endl;
+	}
+
+	return ifs;
+}
+
+std::ostream& operator << (std::ostream& ofs, Monster& monster)
+{
+	ofs << monster.mName << ": " 
+		<< monster.mLevel << ", "
+		<< monster.mHP << ", "
+		<< monster.mMP << std::endl;
+
+	return ofs;
+}
 
 bool LoadFile(const std::string& filename, std::vector<Monster>& vector)
 {
@@ -42,14 +81,7 @@ bool LoadFile(const std::string& filename, std::vector<Monster>& vector)
 		{
 			Monster m;
 			
-			std::getline(ifs, buffer, ',');
-			m.SetName(buffer);
-			std::getline(ifs, buffer, ',');
-			m.SetLevel(std::stoi(buffer));
-			std::getline(ifs, buffer, ',');
-			m.SetHP(std::stoi(buffer));
-			std::getline(ifs, buffer);
-			m.SetMP(std::stoi(buffer));
+			ifs >> m;
 
 			vector.push_back(m);
 		}
@@ -70,4 +102,9 @@ int main()
 	std::vector<Monster> monsterList;
 
 	LoadFile("Data/SimpleText.txt", monsterList);
+
+	for (auto& e : monsterList)
+	{
+		std::cout << e << std::endl;
+	}
 }
